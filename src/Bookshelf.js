@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import BookshelfChanger from './BookshelfChanger.js'
+import Book from './Book.js'
 
 class Bookshelf extends Component {
 
 	render() {
 		return (
+			console.log(this.props.books),
+
 			<div>
 				<div className="bookshelf">
 					<h2 className="bookshelf-title">Currently Reading</h2>
