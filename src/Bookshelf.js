@@ -13,26 +13,31 @@ class Bookshelf extends Component {
 					<h2 className="bookshelf-title">Currently Reading</h2>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
-							<li>
-								<div className="book">
-									<div className="book-top">
-										<div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")' }}></div>
-										<BookshelfChanger />
-									</div>
-									<div className="book-title">To Kill a Mockingbird</div>
-									<div className="book-authors">Harper Lee</div>
-								</div>
-							</li>
-							<li>
-								<div className="book">
-									<div className="book-top">
-										<div className="book-cover" style={{ width: 128, height: 188, backgroundImage: 'url("http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api")' }}></div>
-										<BookshelfChanger />
-									</div>
-									<div className="book-title">Ender's Game</div>
-									<div className="book-authors">Orson Scott Card</div>
-								</div>
-							</li>
+							{/*
+								* The filter method loops through the array and checks if the
+								* respective book has the same .shelf-property as the currently
+								* chosen shelf. The book will only be put into the array of the
+								* current bookshelf with the .map()-method if the properties are
+								* the same. They key for the list elment identifies the book.
+								* This was implemented with the help of Maeva's study jam:
+								* https://youtu.be/i6L2jLHV9j8
+								*/}
+							{
+								this.props.books
+									.filter(book => book.shelf === 'currentlyReading')
+									.map(book => (
+										<li key={book.id}>
+											{/*
+												* The variable "book" is defined here as an item from
+												* the mapped array. The Book.js now has acces to this
+												* variable.
+												*/}
+											<Book
+												singleBook={book}
+											/>
+										</li>
+									))
+							}
 						</ol>
 					</div>
 				</div>
