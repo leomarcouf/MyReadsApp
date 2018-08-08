@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
-import Book from './Book.js'
+import Book from './Book'
 
 class Bookshelf extends Component {
+
+	state = {
+		bookshelfTitle: [
+			{name: "Currently Reading",
+			className: "currentlyReading"}
+		]
+	}
 
 	render() {
 		return (
 			console.log(this.props.books),
 			<div>
 				<div className="bookshelf">
-					<h2 className="bookshelf-title">Currently Reading</h2>
+					<h2 className="bookshelf-title">{this.state.bookshelfTitle[0].name}</h2>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{/*
