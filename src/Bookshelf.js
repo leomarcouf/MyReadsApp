@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+	import React, { Component } from 'react'
 import Book from './Book'
 
 class Bookshelf extends Component {
@@ -15,7 +15,7 @@ class Bookshelf extends Component {
 			console.log(this.props.books),
 			<div>
 				<div className="bookshelf">
-					<h2 className="bookshelf-title">{this.state.bookshelfTitle[0].name}</h2>
+					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[0].className}`}>{this.state.bookshelfTitle[0].name}</h2>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{/*
