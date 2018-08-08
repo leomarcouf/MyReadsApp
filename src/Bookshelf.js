@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Book from './Book'
-import BookshelfTitle from './BookshelfTitle'
 
 class Bookshelf extends Component {
 
@@ -26,7 +25,13 @@ class Bookshelf extends Component {
 			console.log(this.props.books),
 			<div>
 				<div className="bookshelf">
-					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[0].className}`}>{this.state.bookshelfTitle[0].title}</h2>
+					{
+						this.state.bookshelfTitle
+							.filter(singleTitle => singleTitle.index === "0")
+							.map((singleTitle) => {
+								return <h2 className={`bookshelf-title ${singleTitle.className}`}>{singleTitle.title}</h2>
+							})
+					}
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{/*
@@ -58,7 +63,13 @@ class Bookshelf extends Component {
 					</div>
 				</div>
 				<div className="bookshelf">
-					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[1].className}`}>{this.state.bookshelfTitle[1].title}</h2>
+					{
+						this.state.bookshelfTitle
+							.filter(singleTitle => singleTitle.index === "1")
+							.map((singleTitle) => {
+								return <h2 className={`bookshelf-title ${singleTitle.className}`}>{singleTitle.title}</h2>
+							})
+					}
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
@@ -81,11 +92,13 @@ class Bookshelf extends Component {
 					</div>
 				</div>
 				<div className="bookshelf">
-					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[2].className}`}>{this.state.bookshelfTitle[2].title}</h2>
 					{
-						this.props.bookshelfTitle
+						this.state.bookshelfTitle
+							.filter(singleTitle => singleTitle.index === "2")
+							.map((singleTitle) => {
+								return <h2 className={`bookshelf-title ${singleTitle.className}`}>{singleTitle.title}</h2>
+							})
 					}
-					<BookshelfTitle />
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
