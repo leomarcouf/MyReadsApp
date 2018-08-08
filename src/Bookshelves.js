@@ -21,7 +21,8 @@ class Bookshelves extends Component {
 								* chosen shelf. The book will only be put into the array of the
 								* current bookshelf with the .map()-method if the properties are
 								* the same. They key for the list elment identifies the book.
-								* This was implemented with the help of Maeva's study jam:
+								* This was implemented with the help of Maeva's study jam,
+								* but I refined the filter-Method to suit my future puproses:
 								* https://youtu.be/i6L2jLHV9j8
 								*/}
 							{
@@ -36,6 +37,7 @@ class Bookshelves extends Component {
 												*/}
 											<Book
 												singleBook={book}
+												changeShelf={this.props.changeShelf}
 											/>
 										</li>
 									))
@@ -57,6 +59,7 @@ class Bookshelves extends Component {
 										<li key={book.id}>
 											<Book
 												singleBook={book}
+												changeShelf={this.props.changeShelf}
 											/>
 										</li>
 									))
@@ -78,6 +81,7 @@ class Bookshelves extends Component {
 										<li key={book.id}>
 											<Book
 												singleBook={book}
+												changeShelf={this.props.changeShelf}
 											/>
 										</li>
 									))
