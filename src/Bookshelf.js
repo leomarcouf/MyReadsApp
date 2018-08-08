@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import BookshelfChanger from './BookshelfChanger.js'
 
-class Bookshelf extends React.Component {
+class Bookshelf extends Component {
 
 	render() {
 		return (
