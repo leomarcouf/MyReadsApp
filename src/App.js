@@ -48,7 +48,6 @@ class BooksApp extends Component {
 
   render() {
     return (
-      console.log(this.state.books),
       <div className="app">
         <Route exact path="/" render={() => (
           <Main
