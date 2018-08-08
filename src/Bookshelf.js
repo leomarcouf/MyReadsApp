@@ -7,13 +7,16 @@ class Bookshelf extends Component {
 	state = {
 		bookshelfTitle: [
 			{ title: "Currently Reading",
-				className: "currentlyReading"
+				className: "currentlyReading",
+				index: "0"
 			},
 			{ title: "Want to Read",
-				className: "wantToRead"
+				className: "wantToRead",
+				index: "1"
 			},
 			{ title: "Read",
-				className: "read"
+				className: "read",
+				index: "2"
 			}
 		]
 	}
@@ -56,7 +59,6 @@ class Bookshelf extends Component {
 				</div>
 				<div className="bookshelf">
 					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[1].className}`}>{this.state.bookshelfTitle[1].title}</h2>
-					<BookshelfTitle />
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
@@ -80,6 +82,10 @@ class Bookshelf extends Component {
 				</div>
 				<div className="bookshelf">
 					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[2].className}`}>{this.state.bookshelfTitle[2].title}</h2>
+					{
+						this.props.bookshelfTitle
+					}
+					<BookshelfTitle />
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
