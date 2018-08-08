@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Book from './Book'
+import BookshelfTitle from './BookshelfTitle'
 
 class Bookshelf extends Component {
 
@@ -55,6 +56,7 @@ class Bookshelf extends Component {
 				</div>
 				<div className="bookshelf">
 					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[1].className}`}>{this.state.bookshelfTitle[1].title}</h2>
+					<BookshelfTitle />
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
