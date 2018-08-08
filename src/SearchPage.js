@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
+//import escapeRegExp from 'escape-string-regexp'
+//import sortBy from 'sort-by'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 
@@ -36,12 +36,19 @@ class SearchPage extends Component {
      * searchedBooks-array is updated.
      * If there is no query, the input field is empty. The searchedBooks-array
      * is then also set to an empty array so that the page renders correctly but
-     * without showing any books.
+     * without showing any books. The searched Books array is also empty when
+     * an error occurs because the user searches for a non-matching title.
+     * (See Maeva's study jam from 2:07:00 - 2:09:50), https://youtu.be/i6L2jLHV9j8
      */
     updateSearchedBooks = (query) => {
         if (query) {
             BooksAPI.search(query).then((searchedBooks) => {
-                this.setState({ searchedBooks: searchedBooks})
+                if (searchedBooks.error) {
+                    this.setState({ searchedBooks: [] })
+                }
+                else {
+                    this.setState({ searchedBooks: searchedBooks})
+                }
             })
         }
         else {
@@ -94,6 +101,8 @@ class SearchPage extends Component {
                             <li key={searchedBook.id}>
                                 <Book
                                     singleBook={searchedBook}
+                                    changeShelf={this.props.changeShelf}
+                                    selectedShelf={"none"}
                                 />
                             </li>
                         ))
