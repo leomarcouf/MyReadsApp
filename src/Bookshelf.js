@@ -1,37 +1,18 @@
 import React, { Component } from 'react'
 import Book from './Book'
+import BookshelfTitle from './BookshelfTitle'
 
 class Bookshelf extends Component {
-
-	state = {
-		bookshelfTitle: [
-			{ title: "Currently Reading",
-				className: "currentlyReading",
-				index: "0"
-			},
-			{ title: "Want to Read",
-				className: "wantToRead",
-				index: "1"
-			},
-			{ title: "Read",
-				className: "read",
-				index: "2"
-			}
-		]
-	}
 
 	render() {
 		return (
 			console.log(this.props.books),
 			<div>
 				<div className="bookshelf">
-					{
-						this.state.bookshelfTitle
-							.filter(singleTitle => singleTitle.index === "0")
-							.map((singleTitle) => {
-								return <h2 className={`bookshelf-title ${singleTitle.className}`}>{singleTitle.title}</h2>
-							})
-					}
+					<BookshelfTitle
+						name="Currently Reading"
+						class="bookshelf-title currentlyReading"
+					/>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{/*
@@ -63,13 +44,10 @@ class Bookshelf extends Component {
 					</div>
 				</div>
 				<div className="bookshelf">
-					{
-						this.state.bookshelfTitle
-							.filter(singleTitle => singleTitle.index === "1")
-							.map((singleTitle) => {
-								return <h2 className={`bookshelf-title ${singleTitle.className}`}>{singleTitle.title}</h2>
-							})
-					}
+					<BookshelfTitle
+						name="Want to Read"
+						class="bookshelf-title wantToRead"
+					/>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
@@ -92,13 +70,10 @@ class Bookshelf extends Component {
 					</div>
 				</div>
 				<div className="bookshelf">
-					{
-						this.state.bookshelfTitle
-							.filter(singleTitle => singleTitle.index === "2")
-							.map((singleTitle) => {
-								return <h2 className={`bookshelf-title ${singleTitle.className}`}>{singleTitle.title}</h2>
-							})
-					}
+					<BookshelfTitle
+						name="Read"
+						class="bookshelf-title read"
+					/>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
