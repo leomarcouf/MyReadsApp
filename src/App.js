@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Bookshelves from './Bookshelves'
-import SearchOpen from './SearchOpen'
+import Main from './Main'
 
 import * as BooksAPI from './BooksAPI'
 import './App.css'
@@ -55,19 +54,10 @@ class BooksApp extends Component {
             </div>
           </div>
         ) : (
-          <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
-            <div className="list-books-content">
-              <Bookshelves
-                books={this.state.books}
-              />
-            </div>
-            <SearchOpen
-              openSearch={this.openSearch.bind(this)}
-            />
-          </div>
+          <Main
+            books={this.state.books}
+            openSearch={this.openSearch.bind(this)}
+          />
         )}
       </div>
     )
