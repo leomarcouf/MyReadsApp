@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Bookshelves from './Bookshelves'
+import SearchOpen from './SearchOpen'
 
 import * as BooksAPI from './BooksAPI'
 import './App.css'
@@ -23,6 +24,10 @@ class BooksApp extends Component {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
+  }
+  
+  openSearch() {
+    this.setState({ showSearchPage: true })
   }
 
   render() {
@@ -59,9 +64,9 @@ class BooksApp extends Component {
                 books={this.state.books}
               />
             </div>
-            <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-            </div>
+            <SearchOpen
+              openSearch={this.openSearch.bind(this)}
+            />
           </div>
         )}
       </div>
