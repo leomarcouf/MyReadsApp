@@ -58,16 +58,6 @@ class SearchPage extends Component {
     }
 
     render() {
-        {/*
-        let showingBooks
-        if (this.state.query) {
-            const match = new RegExp(escapeRegExp((query), 'i'))
-            showingBooks = searchedBooks.filter((searchedBooks) => match.test(contact.name))
-        } else {
-            showingBooks = searchedBooks
-        }
-        showingBooks.sort(sortBy('name')) */}
-
         return(
             <div className="search-books">
                 <div className="search-books-bar">
@@ -102,15 +92,27 @@ class SearchPage extends Component {
                 */}
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {this.state.searchedBooks.map((searchedBook) => (
-                            <li key={searchedBook.id}>
-                                <Book
-                                    singleBook={searchedBook}
-                                    changeShelf={this.props.changeShelf}
-                                    selectedShelf={"none"}
-                                />
-                            </li>
-                        ))
+                        {this.state.searchedBooks.map((searchedBook) => {
+                            let searchShelf = "none";
+
+                            this.props.books.map((singleBook) => (
+                                this.props.books.map(singleBook => (
+                                    singleBook.id === searchedBook.id ?
+                                    searchShelf = singleBook.shelf :
+                                    ""
+                                ))
+                            ));
+
+                            return (
+                                <li key={searchedBook.id}>
+                                    <Book
+                                        singleBook={searchedBook}
+                                        changeShelf={this.props.changeShelf}
+                                        selectedShelf={searchShelf}
+                                    />
+                                </li>
+                            )
+                        })
                         }
                     </ol>
                 </div>
