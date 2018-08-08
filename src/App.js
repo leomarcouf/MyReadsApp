@@ -61,7 +61,6 @@ class BooksApp extends Component {
             books={this.state.books}
             changeShelf={this.changeShelf}
             singleBook={this.props.singleBook}
-
           />
         )}/>
       </div>
