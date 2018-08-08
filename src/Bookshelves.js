@@ -11,7 +11,7 @@ class Bookshelves extends Component {
 				<div className="bookshelf">
 					<BookshelfTitle
 						name="Currently Reading"
-						class="bookshelf-title currentlyReading"
+						class={this.props.bookTitleClass[0]}
 					/>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
@@ -46,7 +46,7 @@ class Bookshelves extends Component {
 				<div className="bookshelf">
 					<BookshelfTitle
 						name="Want to Read"
-						class="bookshelf-title wantToRead"
+						class={this.props.bookTitleClass[1]}
 					/>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
@@ -67,7 +67,7 @@ class Bookshelves extends Component {
 				<div className="bookshelf">
 					<BookshelfTitle
 						name="Read"
-						class="bookshelf-title read"
+						class={this.props.bookTitleClass[2]}
 					/>
 					<div className="bookshelf-books">
 						<ol className="books-grid">

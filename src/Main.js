@@ -12,6 +12,7 @@ class Main extends Component {
             <div className="list-books-content">
               <Bookshelves
                 books={this.props.books}
+                bookTitleClass={this.props.bookTitleClass}
               />
             </div>
               <SearchOpen

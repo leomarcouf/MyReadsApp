@@ -13,7 +13,8 @@ class BooksApp extends Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
-    books: []
+    books: [],
+    bookTitleClass: ["bookshelf-title currentlyReading", "bookshelf-title wantToRead", "bookshelf-title read"]
   }
 
   /**
@@ -57,6 +58,7 @@ class BooksApp extends Component {
           <Main
             books={this.state.books}
             openSearch={this.openSearch.bind(this)}
+            bookTitleClass={this.state.bookTitleClass}
           />
         )}
       </div>
