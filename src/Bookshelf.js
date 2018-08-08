@@ -1,12 +1,19 @@
-	import React, { Component } from 'react'
+import React, { Component } from 'react'
 import Book from './Book'
 
 class Bookshelf extends Component {
 
 	state = {
 		bookshelfTitle: [
-			{name: "Currently Reading",
-			className: "currentlyReading"}
+			{ title: "Currently Reading",
+				className: "currentlyReading"
+			},
+			{ title: "Want to Read",
+				className: "wantToRead"
+			},
+			{ title: "Read",
+				className: "read"
+			}
 		]
 	}
 
@@ -15,7 +22,7 @@ class Bookshelf extends Component {
 			console.log(this.props.books),
 			<div>
 				<div className="bookshelf">
-					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[0].className}`}>{this.state.bookshelfTitle[0].name}</h2>
+					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[0].className}`}>{this.state.bookshelfTitle[0].title}</h2>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{/*
@@ -47,7 +54,7 @@ class Bookshelf extends Component {
 					</div>
 				</div>
 				<div className="bookshelf">
-					<h2 className="bookshelf-title">Want to Read</h2>
+					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[1].className}`}>{this.state.bookshelfTitle[1].title}</h2>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
@@ -70,7 +77,7 @@ class Bookshelf extends Component {
 					</div>
 				</div>
 				<div className="bookshelf">
-					<h2 className="bookshelf-title">Read</h2>
+					<h2 className={`bookshelf-title ${this.state.bookshelfTitle[2].className}`}>{this.state.bookshelfTitle[2].title}</h2>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{
