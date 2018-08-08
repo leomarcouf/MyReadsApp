@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
+
 import Main from './Main'
 import SearchPage from './SearchPage'
 
@@ -27,14 +29,6 @@ class BooksApp extends Component {
     })
   }
   
-  openSearch = () => {
-    this.setState({ showSearchPage: true })
-  }
-
-  closeSearch = () => {
-    this.setState({ showSearchPage: false })
-  }
-
   /**
    * The following Method to update the shelf is a simplified variation of
    * the method from Maeva's study jam: https://youtu.be/i6L2jLHV9j8 
@@ -56,20 +50,18 @@ class BooksApp extends Component {
     return (
       console.log(this.state.books),
       <div className="app">
-        {this.state.showSearchPage ? (
-          <SearchPage
-            closeSearch={this.closeSearch.bind(this)}
-            changeShelf={this.changeShelf}
-
-          />
-        ) : (
+        <Route exact path="/" render={() => (
           <Main
             books={this.state.books}
-            openSearch={this.openSearch.bind(this)}
             bookTitleClass={this.state.bookTitleClass}
             changeShelf={this.changeShelf}
           />
-        )}
+        )}/>
+        <Route path="/search" render={() => (
+          <SearchPage
+            changeShelf={this.changeShelf}
+          />
+        )}/>
       </div>
     )
   }

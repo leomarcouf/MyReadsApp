@@ -14,14 +14,9 @@ class Main extends Component {
                 books={this.props.books}
                 bookTitleClass={this.props.bookTitleClass}
                 changeShelf={this.props.changeShelf}
-
-
-
               />
             </div>
-              <SearchOpen
-                openSearch={this.props.openSearch}
-              />
+              <SearchOpen />
           </div>
         )
     }
