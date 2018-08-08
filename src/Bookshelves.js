@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Book from './Book'
 import BookshelfTitle from './BookshelfTitle'
 
-class Bookshelf extends Component {
+class Bookshelves extends Component {
 
 	render() {
 		return (
@@ -55,11 +55,6 @@ class Bookshelf extends Component {
 									.filter(book => book.shelf === 'wantToRead')
 									.map(book => (
 										<li key={book.id}>
-											{/*
-												* The variable "book" is defined here as an item from
-												* the mapped array. The Book.js now has acces to this
-												* variable.
-												*/}
 											<Book
 												singleBook={book}
 											/>
@@ -81,11 +76,6 @@ class Bookshelf extends Component {
 									.filter(book => book.shelf === 'read')
 									.map(book => (
 										<li key={book.id}>
-											{/*
-												* The variable "book" is defined here as an item from
-												* the mapped array. The Book.js now has acces to this
-												* variable.
-												*/}
 											<Book
 												singleBook={book}
 											/>
@@ -100,4 +90,4 @@ class Bookshelf extends Component {
 	}
 }
 
-export default Bookshelf
+export default Bookshelves
