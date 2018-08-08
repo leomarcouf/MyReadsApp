@@ -26,7 +26,7 @@ class Bookshelves extends Component {
 								*/}
 							{
 								this.props.books
-									.filter(book => book.shelf === 'currentlyReading')
+									.filter(book => this.props.bookTitleClass[0].includes(book.shelf))
 									.map(book => (
 										<li key={book.id}>
 											{/*
@@ -52,7 +52,7 @@ class Bookshelves extends Component {
 						<ol className="books-grid">
 							{
 								this.props.books
-									.filter(book => book.shelf === 'wantToRead')
+									.filter(book => this.props.bookTitleClass[1].includes(book.shelf))
 									.map(book => (
 										<li key={book.id}>
 											<Book
@@ -73,7 +73,7 @@ class Bookshelves extends Component {
 						<ol className="books-grid">
 							{
 								this.props.books
-									.filter(book => book.shelf === 'read')
+									.filter(book => this.props.bookTitleClass[2].includes(book.shelf))
 									.map(book => (
 										<li key={book.id}>
 											<Book
